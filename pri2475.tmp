@@ -1,0 +1,163 @@
+[gd_scene load_steps=20 format=3 uid="uid://1co8kde8jh8o"]
+
+[ext_resource type="PackedScene" uid="uid://bol83d378ny7e" path="res://cenario_grama.tscn" id="1_xk2ef"]
+[ext_resource type="PackedScene" uid="uid://bn81oq4b5crva" path="res://fazendeiro.tscn" id="2_21288"]
+[ext_resource type="Texture2D" uid="uid://b6rk1vm5kb7eo" path="res://objects/Crop_Spritesheet.png" id="3_2716u"]
+[ext_resource type="Script" path="res://tomate.gd" id="3_ilj2h"]
+[ext_resource type="Texture2D" uid="uid://cm8oldbq86hmq" path="res://tilemaps/summer tilemap.png" id="5_34xov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oof1"]
+atlas = ExtResource("3_2716u")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s38q4"]
+atlas = ExtResource("3_2716u")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vhqo"]
+atlas = ExtResource("3_2716u")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbu1r"]
+atlas = ExtResource("3_2716u")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xwip"]
+atlas = ExtResource("3_2716u")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jw6v"]
+atlas = ExtResource("3_2716u")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptf5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oof1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s38q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vhqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbu1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xwip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jw6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhlba"]
+size = Vector2(14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjyni"]
+atlas = ExtResource("5_34xov")
+region = Rect2(128, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foxjg"]
+atlas = ExtResource("5_34xov")
+region = Rect2(128, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rb7h"]
+atlas = ExtResource("5_34xov")
+region = Rect2(128, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uerrp"]
+atlas = ExtResource("5_34xov")
+region = Rect2(128, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdrvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjyni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foxjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rb7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uerrp")
+}],
+"loop": true,
+"name": &"agua",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wa8oj"]
+radius = 7.28011
+
+[node name="principal" type="Node2D"]
+position = Vector2(-11, -30)
+
+[node name="cenario_grama" parent="." instance=ExtResource("1_xk2ef")]
+position = Vector2(15, 43)
+
+[node name="fazendeiro" parent="." instance=ExtResource("2_21288")]
+z_index = 1
+position = Vector2(455, 259)
+
+[node name="Camera2D" type="Camera2D" parent="fazendeiro"]
+position = Vector2(1, 2)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="tomate" type="Area2D" parent="."]
+position = Vector2(362, 240)
+monitorable = false
+script = ExtResource("3_ilj2h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="tomate"]
+position = Vector2(68, 21)
+sprite_frames = SubResource("SpriteFrames_ptf5o")
+frame_progress = 0.934323
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomate"]
+position = Vector2(68, 20.5)
+shape = SubResource("RectangleShape2D_bhlba")
+
+[node name="flutuante_vitoria_regia" type="AnimatedSprite2D" parent="."]
+position = Vector2(342, 225)
+rotation = 0.00608331
+sprite_frames = SubResource("SpriteFrames_cdrvj")
+animation = &"agua"
+autoplay = "agua"
+frame_progress = 0.935923
+
+[node name="seguindo_informacoes" type="CanvasLayer" parent="."]
+
+[node name="semente_tomate" type="Label" parent="seguindo_informacoes"]
+texture_filter = 1
+offset_left = 6.0
+offset_top = 12.0
+offset_right = 138.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.815295, 0, 0.0328293, 1)
+theme_override_font_sizes/font_size = 18
+text = "semente de tomate"
+
+[node name="sementes" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sementes"]
+position = Vector2(551, 259)
+shape = SubResource("CircleShape2D_wa8oj")
+
+[connection signal="body_entered" from="tomate" to="fazendeiro" method="_on_tomate_body_entered"]
+[connection signal="body_entered" from="tomate" to="tomate" method="_on_body_entered"]
+[connection signal="body_exited" from="tomate" to="fazendeiro" method="_on_tomate_body_exited"]
+[connection signal="body_exited" from="tomate" to="tomate" method="_on_body_exited"]
+[connection signal="body_entered" from="sementes" to="fazendeiro" method="_on_sementes_body_entered"]
+
+[editable path="fazendeiro"]
