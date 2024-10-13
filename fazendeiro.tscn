@@ -227,17 +227,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82vsq"]
-size = Vector2(14, 19)
+size = Vector2(14, 26)
 
 [node name="fazendeira" type="CharacterBody2D"]
 script = ExtResource("1_j3qx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1url")
-animation = &"andando_direita_loop"
+animation = &"andando_baixo_loop"
 autoplay = "parado"
-frame_progress = 0.674122
+frame_progress = 0.545979
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1.5)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_82vsq")

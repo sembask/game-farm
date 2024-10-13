@@ -25,9 +25,9 @@ func _on_body_entered(body: Node2D) -> void:
 			
 func _on_body_exited(body: Node2D) -> void:
 	colidiu = false
-	$"../borboleta/AnimationPlayer".play("noite")
-	await get_tree().create_timer(15.0).timeout
-	$"../borboleta/AnimationPlayer".play("dia")
+	#$"../borboleta/AnimationPlayer".play("noite")
+	#await get_tree().create_timer(15.0).timeout
+	#$"../borboleta/AnimationPlayer".play("dia")
 
 func plantar_tomate() -> void:
 	show()

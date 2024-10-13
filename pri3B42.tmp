@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://1co8kde8jh8o"]
+[gd_scene load_steps=45 format=3 uid="uid://1co8kde8jh8o"]
 
 [ext_resource type="Script" path="res://principal.gd" id="1_3wi37"]
 [ext_resource type="PackedScene" uid="uid://bol83d378ny7e" path="res://cenario_grama.tscn" id="1_xk2ef"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://tomate.gd" id="3_ilj2h"]
 [ext_resource type="Texture2D" uid="uid://cm8oldbq86hmq" path="res://tilemaps/summer tilemap.png" id="5_34xov"]
 [ext_resource type="Texture2D" uid="uid://dufhwjoilgeq2" path="res://objects/butterfly spritesheet.png" id="6_76etf"]
-[ext_resource type="Script" path="res://data_e_hora.gd" id="8_dcdon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2oof1"]
 atlas = ExtResource("3_2716u")
@@ -315,7 +314,7 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="tomate" type="Area2D" parent="."]
-position = Vector2(422, 278)
+position = Vector2(362, 240)
 monitorable = false
 script = ExtResource("3_ilj2h")
 
@@ -329,7 +328,7 @@ position = Vector2(68, 20.5)
 shape = SubResource("RectangleShape2D_bhlba")
 
 [node name="tomate2" type="Area2D" parent="."]
-position = Vector2(465, 278)
+position = Vector2(362, 261)
 monitorable = false
 script = ExtResource("3_ilj2h")
 
@@ -398,18 +397,6 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_hvu5l")
 }
-
-[node name="data_e_hora" type="Label" parent="."]
-texture_filter = 1
-offset_left = 18.0
-offset_top = 73.0
-offset_right = 58.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "DATA E HORA"
-script = ExtResource("8_dcdon")
 
 [connection signal="body_entered" from="tomate" to="fazendeiro" method="_on_tomate_body_entered"]
 [connection signal="body_entered" from="tomate" to="tomate" method="_on_body_entered"]
