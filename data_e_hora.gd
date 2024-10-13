@@ -9,6 +9,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var tempo = Time.get_datetime_dict_from_system()
-	print(tempo)
 	
 	text = str("%02d"%tempo.hour,":", "%02d"%tempo.minute,".","%02d"%tempo.second)

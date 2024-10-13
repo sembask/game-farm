@@ -315,7 +315,7 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="tomate" type="Area2D" parent="."]
-position = Vector2(422, 278)
+position = Vector2(359, 263)
 monitorable = false
 script = ExtResource("3_ilj2h")
 
@@ -329,7 +329,7 @@ position = Vector2(68, 20.5)
 shape = SubResource("RectangleShape2D_bhlba")
 
 [node name="tomate2" type="Area2D" parent="."]
-position = Vector2(465, 278)
+position = Vector2(378, 263)
 monitorable = false
 script = ExtResource("3_ilj2h")
 
@@ -356,11 +356,23 @@ frame_progress = 0.6972
 texture_filter = 1
 offset_left = 6.0
 offset_top = 12.0
-offset_right = 138.0
-offset_bottom = 32.0
+offset_right = 176.0
+offset_bottom = 38.0
 theme_override_colors/font_color = Color(0.815295, 0, 0.0328293, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 22
 text = "semente de tomate"
+
+[node name="data_e_hora" type="Label" parent="seguindo_informacoes"]
+texture_filter = 1
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 170.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "DATA E HORA"
+script = ExtResource("8_dcdon")
 
 [node name="sementes" type="Area2D" parent="."]
 monitorable = false
@@ -398,18 +410,6 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_hvu5l")
 }
-
-[node name="data_e_hora" type="Label" parent="."]
-texture_filter = 1
-offset_left = 18.0
-offset_top = 73.0
-offset_right = 58.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "DATA E HORA"
-script = ExtResource("8_dcdon")
 
 [connection signal="body_entered" from="tomate" to="fazendeiro" method="_on_tomate_body_entered"]
 [connection signal="body_entered" from="tomate" to="tomate" method="_on_body_entered"]

@@ -3,18 +3,6 @@
 [ext_resource type="Script" path="res://fazendeiro.gd" id="1_j3qx3"]
 [ext_resource type="Texture2D" uid="uid://imygh0to4mhh" path="res://Characters/Fumiko.png" id="2_gpbmw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yu2k"]
-atlas = ExtResource("2_gpbmw")
-region = Rect2(72, 96, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_554gw"]
-atlas = ExtResource("2_gpbmw")
-region = Rect2(96, 96, 24, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ce2lv"]
-atlas = ExtResource("2_gpbmw")
-region = Rect2(120, 96, 24, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3r1xk"]
 atlas = ExtResource("2_gpbmw")
 region = Rect2(0, 64, 24, 32)
@@ -99,26 +87,24 @@ region = Rect2(24, 96, 24, 32)
 atlas = ExtResource("2_gpbmw")
 region = Rect2(48, 96, 24, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yu2k"]
+atlas = ExtResource("2_gpbmw")
+region = Rect2(72, 96, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_554gw"]
+atlas = ExtResource("2_gpbmw")
+region = Rect2(96, 96, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce2lv"]
+atlas = ExtResource("2_gpbmw")
+region = Rect2(120, 96, 24, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqv4x"]
 atlas = ExtResource("2_gpbmw")
 region = Rect2(0, 64, 24, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1url"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0yu2k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_554gw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ce2lv")
-}],
-"loop": true,
-"name": &"andanda_esquerda_loop",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3r1xk")
@@ -219,6 +205,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0yu2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_554gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce2lv")
+}],
+"loop": true,
+"name": &"andando_esquerda_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_iqv4x")
 }],
 "loop": true,
@@ -234,9 +234,8 @@ script = ExtResource("1_j3qx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1url")
-animation = &"andando_baixo_loop"
+animation = &"parado"
 autoplay = "parado"
-frame_progress = 0.545979
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 2)
