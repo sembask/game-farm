@@ -8,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_released("ui_accept") and Dados.semente > 0:
 		var instance_node_milho = node_milho.instantiate()
 		instance_node_milho.position = $fazendeiro.position
 		add_child(instance_node_milho)
+		Dados.semente < 1

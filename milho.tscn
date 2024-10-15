@@ -58,6 +58,7 @@ radius = 6.0
 height = 18.0
 
 [node name="milho" type="Area2D"]
+collision_mask = 5
 script = ExtResource("1_evmdj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -67,3 +68,6 @@ frame_progress = 0.0560503
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yfe1x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
