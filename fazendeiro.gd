@@ -5,13 +5,18 @@ var vetor: Vector2 = Vector2.ZERO
 var parado = false
 var ultima_direcao = ""
 var anim_loop_temp: String = "" 
+var colidiu_porta = false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("parado")
-	
+	#if Dados.personagem == null:
+		#Dados.personagem = self  # Registra o personagem no singleton
+	#else:
+		#queue_free()  # Evita instanciar dois personagens
+
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
-
+	
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	direction.y = Input.get_axis("ui_up", "ui_down")
 
@@ -27,7 +32,14 @@ func _physics_process(delta: float) -> void:
 
 	velocity = vetor
 	move_and_slide()
+	
+	if colidiu_porta and Input.is_action_just_pressed("acao_geral"):
+		Dados.personagem_position = position  # Salva a posição
+		Dados.cena_atual = "res://principal.tscn"
+		get_tree().change_scene_to_file("res://interior_casa.tscn")
+		colidiu_porta = false
 
+		
 func get_direcao(v: Vector2) -> String:
 	if abs(v.x) > abs(v.y):
 		return "direita" if v.x > 0 else "esquerda"
@@ -69,3 +81,6 @@ func tocar_animacao_parada() -> void:
 
 func _on_sementes_body_entered(body: Node2D) -> void:
 	Dados.semente += 1
+
+func _on_porta_area_2d_body_entered(body: Node2D) -> void:
+	colidiu_porta = true 

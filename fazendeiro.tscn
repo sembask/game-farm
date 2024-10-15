@@ -227,9 +227,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82vsq"]
-size = Vector2(14, 26)
+size = Vector2(11, 9)
 
-[node name="fazendeira" type="CharacterBody2D"]
+[node name="fazendeiro" type="CharacterBody2D"]
 script = ExtResource("1_j3qx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -238,5 +238,5 @@ animation = &"parado"
 autoplay = "parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
+position = Vector2(-0.5, 10.5)
 shape = SubResource("RectangleShape2D_82vsq")
