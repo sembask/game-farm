@@ -9,10 +9,6 @@ var colidiu_porta = false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("parado")
-	#if Dados.personagem == null:
-		#Dados.personagem = self  # Registra o personagem no singleton
-	#else:
-		#queue_free()  # Evita instanciar dois personagens
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -33,8 +29,8 @@ func _physics_process(delta: float) -> void:
 	velocity = vetor
 	move_and_slide()
 	
-	if colidiu_porta and Input.is_action_just_pressed("acao_geral"):
-		Dados.personagem_position = position  # Salva a posição
+	if colidiu_porta == true and Input.is_action_just_pressed("acao_geral"):
+		Dados.personagem_position = position
 		Dados.cena_atual = "res://principal.tscn"
 		get_tree().change_scene_to_file("res://interior_casa.tscn")
 		colidiu_porta = false

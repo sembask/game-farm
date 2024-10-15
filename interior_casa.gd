@@ -15,8 +15,9 @@ func _ready() -> void:
 
 func _on_cama_body_entered(body: Node2D) -> void:
 	if body.name == "fazendeiro":
-		$dialogo_cama.show()
 		$dialogo_cama.text = str("a cama esta muito suja para deitar")
+		$dialogo_cama.show()
+		$dialogo_cama/AnimationPlayer.play("texto_da_cama")
 
 func _on_cama_body_exited(body: Node2D) -> void:
 	if body.name == "fazendeiro":
