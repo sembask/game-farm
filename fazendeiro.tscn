@@ -230,12 +230,15 @@ animations = [{
 size = Vector2(11, 9)
 
 [node name="fazendeiro" type="CharacterBody2D"]
+texture_filter = 1
 script = ExtResource("1_j3qx3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_m1url")
-animation = &"parado"
+animation = &"andando_direita_loop"
 autoplay = "parado"
+frame_progress = 0.540433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 10.5)
